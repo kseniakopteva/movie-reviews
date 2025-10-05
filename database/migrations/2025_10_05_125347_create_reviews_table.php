@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->string('slug');
+            $table->string('title');
+            $table->string('movie');
+            $table->integer('year');
+            $table->string('body');
+            $table->boolean('again')->nullable(); // would watch again?
+            // $table->boolean('recommend')->nullable(); // would recommend?
+            $table->float('rating');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
