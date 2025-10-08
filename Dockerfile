@@ -10,6 +10,12 @@ WORKDIR /var/www/html
 # Copy app files
 COPY . .
 
+# Ensure Composer is up to date and accessible
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Install required PHP extensions for Laravel + PostgreSQL
+RUN docker-php-ext-install pdo pdo_pgsql
+
 # Install dependencies
 RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
