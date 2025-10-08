@@ -7,7 +7,7 @@ services:
     buildCommand: |
       composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
       chmod +x scripts/00-laravel-deploy.sh
-    startCommand: /start.sh
+    startCommand: bash /usr/local/bin/00-laravel-deploy.sh
     envVars:
       - key: APP_KEY
         sync: false

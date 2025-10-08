@@ -39,4 +39,4 @@ RUN chmod +x /usr/local/bin/00-laravel-deploy.sh
 EXPOSE 80
 
 # Run Laravel optimizations, migrations, and start Nginx + PHP-FPM
-CMD ["bash", "-c", "/usr/local/bin/00-laravel-deploy.sh && /start.sh"]
+CMD ["bash", "-c", "/usr/local/bin/00-laravel-deploy.sh"]
