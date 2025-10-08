@@ -26,5 +26,5 @@ RUN chmod +x /usr/local/bin/00-laravel-deploy.sh
 # Expose HTTP port
 EXPOSE 80
 
-# Start Nginx + PHP-FPM
-CMD ["/start.sh"]
+# Run Laravel optimizations, migrations, and start Nginx + PHP-FPM
+CMD ["bash", "-c", "/usr/local/bin/00-laravel-deploy.sh && /start.sh"]
