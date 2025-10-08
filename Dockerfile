@@ -17,7 +17,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN docker-php-ext-install pdo pdo_pgsql
 
 # Install dependencies
-RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+RUN composer install -vvv --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
 # Laravel permissions
 RUN chown -R www-data:www-data storage bootstrap/cache && chmod -R 775 storage bootstrap/cache
