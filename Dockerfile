@@ -1,8 +1,14 @@
 # Base image with PHP, Composer, and Nginx
-FROM richarvey/nginx-php-fpm:1.7.2
+FROM php:8.3-fpm
 
-# Enable required PHP extensions for Laravel + PostgreSQL
-RUN docker-php-ext-install pdo pdo_pgsql
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    nginx \
+    git \
+    unzip \
+    curl \
+    libpq-dev \
+    && docker-php-ext-install pdo pdo_pgsql
 
 # Set working directory
 WORKDIR /var/www/html
