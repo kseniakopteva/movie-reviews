@@ -27,6 +27,11 @@ class AuthController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
+        $arr = ['john.doe@gmail.com', 'mary.smith@gmail.com', 'susan.roberts@gmail.com'];
+
+        if (!in_array($validated['email'], $arr))
+            throw ValidationException::withMessages(['email' => 'You don\'t have permission to register :(']);
+
         $user = User::create($validated);
 
         Auth::login($user);
