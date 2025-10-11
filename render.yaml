@@ -6,6 +6,8 @@ services:
     branch: main
     buildCommand: |
       composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+      npm ci
+      npm run build
       chmod +x scripts/00-laravel-deploy.sh
     startCommand: bash /usr/local/bin/00-laravel-deploy.sh
     envVars:

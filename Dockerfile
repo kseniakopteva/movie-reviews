@@ -8,7 +8,9 @@ RUN apt-get update && apt-get install -y \
     unzip \
     curl \
     libpq-dev \
-    && docker-php-ext-install pdo pdo_pgsql
+    && docker-php-ext-install pdo pdo_pgsql \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs
 
 # Set working directory
 WORKDIR /var/www/html
