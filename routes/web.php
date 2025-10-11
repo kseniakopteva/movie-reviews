@@ -30,3 +30,7 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('review/{review:slug}/delete', [ReviewController::class, 'destroy'])->name('review.delete');
 });
+
+Route::get('/debug-log', function () {
+    return nl2br(file_get_contents(storage_path('logs/laravel.log')));
+});
