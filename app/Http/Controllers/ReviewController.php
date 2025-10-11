@@ -72,7 +72,7 @@ class ReviewController extends Controller
     {
         $validated = $request->validate([
             'title' => ['string', 'required', 'max:100'],
-            'body' => [''],
+            'body' => ['max:500'],
             'again' => ['in:0,1'],
             // 'recommend' => ['in:0,1'],
             'rating' => ['numeric', 'min:1.0', 'max:10.0'],
@@ -105,7 +105,7 @@ class ReviewController extends Controller
         if (strlen($slug) > 50) {
             $slug = substr($slug, 0, -50);
         }
-        $slug = trim(preg_replace('/-+/', '-', $slug), '-');
+        $slug = substr(trim(preg_replace('/-+/', '-', $slug), '-'), 0, 250);
 
         return $slug;
     }

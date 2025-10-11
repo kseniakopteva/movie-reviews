@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('movie');
             $table->integer('year');
-            $table->string('body');
+            $table->text('body');
             $table->boolean('again')->nullable(); // would watch again?
             // $table->boolean('recommend')->nullable(); // would recommend?
             $table->float('rating');
